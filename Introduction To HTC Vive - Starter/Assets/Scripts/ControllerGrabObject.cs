@@ -5,11 +5,13 @@ using UnityEngine;
 public class ControllerGrabObject : MonoBehaviour {
 
 	private SteamVR_TrackedObject trackedObj;
-	// 1
 	private GameObject collidingObject; 
-	// 2
 	private GameObject objectInHand;
-	// Update is called once per frame
+    public Transform cameraRigTransform;
+
+    bool objectHeld = false;
+
+   
 	private SteamVR_Controller.Device Controller
 	{
 		get { return SteamVR_Controller.Input((int)trackedObj.index); }
@@ -30,17 +32,17 @@ public class ControllerGrabObject : MonoBehaviour {
 		// 2
 		collidingObject = col.gameObject;
 	}
-	// 1
+	
 	public void OnTriggerEnter(Collider other)
 	{
 		SetCollidingObject(other);
 	}
 
-	// 2
+	
 	public void OnTriggerStay(Collider other)
 	{
-		SetCollidingObject(other);
-	}
+        SetCollidingObject(other);
+    }
 
 	// 3
 	public void OnTriggerExit(Collider other)
@@ -54,10 +56,20 @@ public class ControllerGrabObject : MonoBehaviour {
 	}
 	private void GrabObject()
 	{
-		// 1
+		
 		objectInHand = collidingObject;
 		collidingObject = null;
-		// 2
+        if (objectInHand.layer == 9)
+        {
+            switch(objectInHand.name)
+            {
+                case "sword":
+                    objectInHand.transform.position = Controller.transform.pos - cameraRigTransform.position;
+                    objectInHand.transform.rotation = Controller.transform.rot; // cameraRigTransform.rotation;
+                    break;
+            }
+
+        }
 		var joint = AddFixedJoint();
 		joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
 	}
@@ -90,18 +102,17 @@ public class ControllerGrabObject : MonoBehaviour {
 		// 1
 		if (Controller.GetHairTriggerDown())
 		{
-			if (collidingObject)
+            
+			if (collidingObject && !objectHeld)
 			{
 				GrabObject();
+                objectHeld = true;
 			}
-		}
-
-		// 2
-		if (Controller.GetHairTriggerUp())
-		{
-			if (objectInHand)
+            
+            else if (objectInHand && objectHeld)
 			{
 				ReleaseObject();
+                objectHeld = false;
 			}
 		}
 	}
