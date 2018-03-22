@@ -46,7 +46,7 @@ public class LaserPointer : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        /*if (Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
+        if (Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
             RaycastHit hit;
 
@@ -68,7 +68,7 @@ public class LaserPointer : MonoBehaviour {
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad) && shouldTeleport)
         {
             Teleport();
-        }*/
+        }
     }
         private void Teleport()
         {

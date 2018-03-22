@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour {
          //   myRender.material.color = Color.black;
             MoveAwayFromPlayer();
             moveBackCount++;
-            if (moveBackCount == moveBackTime)
+            if (moveBackCount >= moveBackTime)
             {
                 moveBackCount = 0;
                 moveTowardsPlayer = true;
@@ -122,7 +122,7 @@ public class EnemyController : MonoBehaviour {
 
             Debug.Log((int)(velocity.magnitude * 10));
 
-            health -= hitObject.GetComponent<HitStength>().hitStrength;
+            health -= hitObject.GetComponent<PlayerHitStrength>().hitStrength;
             inBox = true;
             if (health <= 0)
             {

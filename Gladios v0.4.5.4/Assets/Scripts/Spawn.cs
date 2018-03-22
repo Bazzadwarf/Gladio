@@ -8,14 +8,14 @@ public class Spawn : MonoBehaviour {
     public int intMinTime;
     int intWaittime;
     int intCount = 0;
-    public GameObject Enemey1;
+    public GameObject Enemy1;
     //public GameObject knight;
     public Transform viveTarget;
     void Start ()
     {     
         intWaittime = Random.Range(intMinTime, intMaxTime);
         
-        Enemey1.GetComponentInChildren<EnemyController>().viveTarget = viveTarget;
+        Enemy1.GetComponentInChildren<EnemyController>().viveTarget = viveTarget;
        // knight.GetComponent<EnemyController>().viveTarget = viveTarget;
 
 	}
@@ -24,11 +24,11 @@ public class Spawn : MonoBehaviour {
 	void Update ()
     {
         intCount++;
-     if (intCount == intWaittime)
+     if (intCount > intWaittime)
         {
             int intX = 0;
             int intZ = 0;
-            int intSide = Random.Range(0, 2);
+            int intSide = Random.Range(0, 4);
             switch(intSide)
             {
                 case 0:
@@ -52,8 +52,8 @@ public class Spawn : MonoBehaviour {
             Vector3 spawnLoacation;
             
             
-                spawnLoacation = new Vector3(intX, Enemey1.transform.position.y, intZ);
-                Instantiate(Enemey1, spawnLoacation, Enemey1.transform.rotation);
+                spawnLoacation = new Vector3(intX, Enemy1.transform.position.y, intZ);
+                Instantiate(Enemy1, spawnLoacation, Enemy1.transform.rotation);
             
             
 

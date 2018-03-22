@@ -28,7 +28,7 @@ public class HitObjects : MonoBehaviour
             //float normalized = velocity.magnitude;
             // velocity = Controller.velocity;
             Debug.Log((int)(velocity.magnitude * 10));
-            health -= hitObject.GetComponent<HitStength>().hitStrength;
+            health -= hitObject.GetComponent<PlayerHitStrength>().hitStrength;
             inBox = true;
             if (health <= 0)
             {
