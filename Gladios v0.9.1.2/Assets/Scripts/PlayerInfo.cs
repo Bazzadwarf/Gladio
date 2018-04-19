@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Assets.Scripts;
 
 public class PlayerInfo : MonoBehaviour {
 
@@ -30,10 +31,14 @@ public class PlayerInfo : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         Debug.Log("Started");
         currHealth = maxHealth;
         RefreshHealthBar();
         RefreshKillCounter();
+        Instantiate(Data.Weapon);
+        Instantiate(Data.Shield);
+
     }
 
     // Update is called once per frame

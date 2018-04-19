@@ -20,13 +20,19 @@ public class PlayerHitStrength : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Work out distance travelled
-        Vector3 tempVec;
+
         lastPos = currentPos;
         currentPos = inHand.transform.position;
+        UpdateDamage();
+    }
+
+    float UpdateDamage()
+    {
+        //Work out distance travelled
+        Vector3 tempVec;
         //Distance vector
-        tempVec = new Vector3((lastPos.x - currentPos.x) * (lastPos.x - currentPos.x), 
-                              (lastPos.y - currentPos.y) * (lastPos.y - currentPos.y), 
+        tempVec = new Vector3((lastPos.x - currentPos.x) * (lastPos.x - currentPos.x),
+                              (lastPos.y - currentPos.y) * (lastPos.y - currentPos.y),
                               (lastPos.z - currentPos.z) * (lastPos.z - currentPos.z));
         //Actual distance
         distance = tempVec.x + tempVec.y + tempVec.z;
@@ -36,6 +42,8 @@ public class PlayerHitStrength : MonoBehaviour {
         finalDamage = hitStrength * speed;
         //Cap damage for no stupid numbers
         //This will still one-shot basic enemies
-        if(finalDamage > 100) { finalDamage = 100; }
+        if (finalDamage > 100) { finalDamage = 100; }
+
+        return finalDamage;
     }
 }
