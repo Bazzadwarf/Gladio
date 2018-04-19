@@ -23,27 +23,36 @@ public class PlayerInfo : MonoBehaviour {
 
     public int killCounter;
     float timeAlive;
+    float endingScreen;
 
-    private string secs;
-    private string mins;
-
-    float wait = 10;
+    private int secs;
+    private int mins;
 
     // Use this for initialization
     void Start () {
+        Debug.Log("Started");
         currHealth = maxHealth;
         RefreshHealthBar();
         RefreshKillCounter();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if(currHealth > 0)
+
+    // Update is called once per frame
+    void Update () {
+        if(currHealth > 0)
         {
             RefreshKillCounter();
             RefreshTimer();
         }
+        else if (endingScreen > 5)
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
+        else
+        {
+            endingScreen += Time.deltaTime;
+        }
 	}
+
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("test");
@@ -58,15 +67,11 @@ public class PlayerInfo : MonoBehaviour {
             {
                 Debug.Log("Dead");
                 this.DisplayScore();
-                while(wait > 0)
-                {
-                    wait -= Time.deltaTime;
-                }
-                SceneManager.LoadScene("MenuScene");
                 //UnityEditor.EditorApplication.isPlaying = false;
             }
         }
     }
+
     void OnTriggerExit(Collider col)
     {
         Debug.Log("test2");
@@ -89,16 +94,37 @@ public class PlayerInfo : MonoBehaviour {
     void RefreshTimer()
     {
         timeAlive += Time.deltaTime;
-        secs = Mathf.RoundToInt((timeAlive % 60)).ToString();
-        mins = Mathf.RoundToInt(((timeAlive % 60) % 60)).ToString();
-        timeAliveText.text = (mins + ":" + secs);
+        secs = (int)(timeAlive % 60);
+        mins = (int)timeAlive / 60;
+
+        string tempSecs;
+        if(secs < 10)
+        {
+            tempSecs = "0" + secs;
+        }
+        else
+        {
+            tempSecs = secs.ToString();
+        }
+
+        string tempMins;
+        if(mins < 10)
+        {
+            tempMins = "0" + mins;
+        }
+        else
+        {
+            tempMins = mins.ToString();
+        }
+
+        timeAliveText.text = string.Concat(tempMins, ":", tempSecs);
     }
 
     void DisplayScore()
     {
         
         finalKillCount.text = killCounter.ToString();
-        finalTimer.text = (mins + ":" + secs);
+        finalTimer.text = timeAliveText.text;
         finalScore.text = Mathf.RoundToInt(killCounter * timeAlive).ToString();
         hudPanel.SetActive(false);
         scoreScreen.SetActive(true);
