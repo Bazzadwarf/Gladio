@@ -23,7 +23,8 @@ public class EnemyController : MonoBehaviour {
     Vector3 angularVelocity;
     public Transform viveTarget;
 
-  
+    public GameObject playerInfo;
+
     private GameObject hitObject;
     bool moveTowardsPlayer = true;
     int moveBackTime;
@@ -102,7 +103,7 @@ public class EnemyController : MonoBehaviour {
         lastLocation = thisGameObject.transform.position;
         thisGameObject.transform.Rotate(startAngleX, startAngleY, startAngleZ);
     }
-
+    
     void Attack()
     {
        int intAttackType =  Random.Range(0, 4);
@@ -119,15 +120,16 @@ public class EnemyController : MonoBehaviour {
         {
           
             velocity = hitObject.GetComponent<Rigidbody>().velocity;
-
-            Debug.Log((int)(velocity.magnitude * 10));
-
+            Debug.Log("Enemy Health: " + health);
             health -= hitObject.GetComponent<PlayerHitStrength>().finalDamage;
             Debug.Log("Hit Enemy for: " + hitObject.GetComponent<PlayerHitStrength>().finalDamage);
+            Debug.Log("Enemy Health: " + health);
             inBox = true;
             if (health <= 0)
             {
+                playerInfo.GetComponent<PlayerInfo>().killCounter+= 1;
                 Destroy(thisGameObject);
+                
             }
             moveBackTime = 15;
             moveTowardsPlayer = false;

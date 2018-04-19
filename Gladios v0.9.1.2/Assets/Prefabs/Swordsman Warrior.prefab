@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 54277734762156092}
   - component: {fileID: 65062467383421994}
   - component: {fileID: 114232393887051628}
+  - component: {fileID: 114898406280405992}
   m_Layer: 0
   m_Name: SwordL
   m_TagString: EnemyWeapon
@@ -800,6 +801,7 @@ GameObject:
   - component: {fileID: 54253973038003468}
   - component: {fileID: 65992643264157858}
   - component: {fileID: 114961164430509650}
+  - component: {fileID: 114582079743350838}
   m_Layer: 0
   m_Name: SwordR
   m_TagString: EnemyWeapon
@@ -1029,7 +1031,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697153011954894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.249856, y: 0.031390905, z: -1.3316735}
+  m_LocalPosition: {x: -0.3320923, y: 0, z: -31.477661}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 4230834624162602}
@@ -1880,16 +1882,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetDistance: 5.54
   enemyLookDistance: 5
-  attackDistance: 1.8
+  attackDistance: 2
   enemyMovementSpeed: 0.04
   damping: 3
-  health: 15
+  health: 50
   thisGameObject: {fileID: 1697153011954894}
   animator: {fileID: 95525785707428964}
   startAngleX: 0
   startAngleY: 0
   startAngleZ: 0
   viveTarget: {fileID: 0}
+  playerInfo: {fileID: 0}
+--- !u!114 &114582079743350838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905137914221298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b9e9e50c718744e80f23236178278b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95525785707428964}
+  intTime: 0
+  strAnimationName: 
+--- !u!114 &114898406280405992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650656120448404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf71edb2a2d90f42a073cfcbe0cb48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95525785707428964}
+  intTime: 0
 --- !u!114 &114961164430509650
 MonoBehaviour:
   m_ObjectHideFlags: 1

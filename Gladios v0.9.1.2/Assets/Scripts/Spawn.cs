@@ -11,11 +11,13 @@ public class Spawn : MonoBehaviour {
     public GameObject Enemy1;
     //public GameObject knight;
     public Transform viveTarget;
+    public GameObject playerinfo;
     void Start ()
     {     
         intWaittime = Random.Range(intMinTime, intMaxTime);
         
         Enemy1.GetComponentInChildren<EnemyController>().viveTarget = viveTarget;
+        Enemy1.GetComponentInChildren<EnemyController>().playerInfo = playerinfo;
        // knight.GetComponent<EnemyController>().viveTarget = viveTarget;
 
 	}
@@ -55,8 +57,6 @@ public class Spawn : MonoBehaviour {
             
                 spawnLoacation = new Vector3(intX, Enemy1.transform.position.y, intZ);
                 Instantiate(Enemy1, spawnLoacation, Enemy1.transform.rotation);
-            
-            
 
            intWaittime = Random.Range(intMinTime, intMaxTime);
             intCount = 0;
