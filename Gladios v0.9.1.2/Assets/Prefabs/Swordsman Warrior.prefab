@@ -1031,7 +1031,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697153011954894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3320923, y: 0, z: -31.477661}
+  m_LocalPosition: {x: -7.582535, y: 0, z: 0.42456055}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 4230834624162602}
@@ -1893,6 +1893,15 @@ MonoBehaviour:
   startAngleZ: 0
   viveTarget: {fileID: 0}
   playerInfo: {fileID: 0}
+  death1: {fileID: 8300000, guid: 4c8d59a488d24c341aa2b7ce61d6591a, type: 3}
+  death2: {fileID: 8300000, guid: 864f09460be915d469420a462eb432fa, type: 3}
+  death3: {fileID: 8300000, guid: b3ae19d3ab92b904c9071638c9b65e6b, type: 3}
+  death4: {fileID: 8300000, guid: b609e6e269cd1c841ae9fb606ce774c4, type: 3}
+  death5: {fileID: 8300000, guid: 05ecdd2cb484d1b48a1a0c8b6d712488, type: 3}
+  death6: {fileID: 8300000, guid: c67bb4c35c76b0c448cb640580c1df00, type: 3}
+  death7: {fileID: 8300000, guid: 9d1dd795a639ea44ba6b407862145d58, type: 3}
+  death8: {fileID: 8300000, guid: c30ba35b5774c1d4eadbe47b87141b8a, type: 3}
+  death9: {fileID: 8300000, guid: 38838f240acccb64686a57f897b19f6d, type: 3}
 --- !u!114 &114582079743350838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1906,7 +1915,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95525785707428964}
   intTime: 0
-  strAnimationName: 
+  shield1: {fileID: 8300000, guid: 0805de7e4fb0f4d03a30ae90e7c64311, type: 3}
+  shield2: {fileID: 8300000, guid: 34aca9e3f1ade4802b9062b1380aa523, type: 3}
+  shield3: {fileID: 8300000, guid: 2bc8225a23eb945578cfd49d8ba0dd67, type: 3}
+  sword1: {fileID: 8300000, guid: 0ecf18972377e4652ab7377a0993f14a, type: 3}
+  sword2: {fileID: 8300000, guid: 07c38e0499aea4acd81b44991c0e4d07, type: 3}
+  sword3: {fileID: 8300000, guid: ebcbb664018f947728cb9b67468b0f48, type: 3}
+  sword4: {fileID: 8300000, guid: f3645d7388d9f4efc88a56c59b3a70d4, type: 3}
+  sword5: {fileID: 8300000, guid: 4ae4fe17d19c04e10920bfaca3bd8290, type: 3}
+  sword6: {fileID: 8300000, guid: 44b3696bd5132401cafdca8526812f63, type: 3}
+  sword7: {fileID: 8300000, guid: 72de2a353cacc46d3aad1d65f2599d2a, type: 3}
 --- !u!114 &114898406280405992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1915,11 +1933,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650656120448404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf71edb2a2d90f42a073cfcbe0cb48d, type: 3}
+  m_Script: {fileID: 11500000, guid: f7b9e9e50c718744e80f23236178278b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95525785707428964}
   intTime: 0
+  shield1: {fileID: 8300000, guid: 0805de7e4fb0f4d03a30ae90e7c64311, type: 3}
+  shield2: {fileID: 8300000, guid: 34aca9e3f1ade4802b9062b1380aa523, type: 3}
+  shield3: {fileID: 8300000, guid: 2bc8225a23eb945578cfd49d8ba0dd67, type: 3}
+  sword1: {fileID: 8300000, guid: 0ecf18972377e4652ab7377a0993f14a, type: 3}
+  sword2: {fileID: 8300000, guid: 07c38e0499aea4acd81b44991c0e4d07, type: 3}
+  sword3: {fileID: 8300000, guid: ebcbb664018f947728cb9b67468b0f48, type: 3}
+  sword4: {fileID: 8300000, guid: f3645d7388d9f4efc88a56c59b3a70d4, type: 3}
+  sword5: {fileID: 8300000, guid: 4ae4fe17d19c04e10920bfaca3bd8290, type: 3}
+  sword6: {fileID: 8300000, guid: 44b3696bd5132401cafdca8526812f63, type: 3}
+  sword7: {fileID: 8300000, guid: 72de2a353cacc46d3aad1d65f2599d2a, type: 3}
 --- !u!114 &114961164430509650
 MonoBehaviour:
   m_ObjectHideFlags: 1

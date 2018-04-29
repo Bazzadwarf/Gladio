@@ -10,7 +10,7 @@ public class ControllerGrabObject : MonoBehaviour
     private GameObject objectInHand;
     public Transform cameraRigTransform;
     public GameObject controllerSnapPoint;
-
+    public string strSide;
     bool objectHeld = false;
     Vector3 velocity;
 
@@ -84,10 +84,38 @@ public class ControllerGrabObject : MonoBehaviour
             // will make the snap point the same
             if (snapPoint != null)
             {
-               
-                objectInHand.transform.rotation = controllerSnapPoint.transform.rotation;
-                objectInHand.transform.rotation = snapPoint.transform.rotation;
-                
+
+                if (strSide == "left")
+                {
+                    objectInHand.transform.rotation = controllerSnapPoint.transform.rotation;
+                    objectInHand.transform.rotation = snapPoint.transform.rotation;
+                }
+                else if (strSide == "right")
+                {
+                    objectInHand.transform.rotation = controllerSnapPoint.transform.rotation;
+                     
+                    objectInHand.transform.rotation = snapPoint.transform.rotation;
+                    
+
+                    float x = objectInHand.transform.rotation.x * (-1);
+
+                    //Quaternion dlifhb = new Quaternion(x, controllerSnapPoint.transform.rotation.y, controllerSnapPoint.transform.rotation.z, controllerSnapPoint.transform.rotation.w);
+                    //objectInHand.transform.rotation = dlifhb;
+                    
+                    //Quaternion rot = controllerSnapPoint.transform.rotation;
+                    ////rot.x -= 180;
+                    //rot.y -= 180;
+                    ////rot.z -= 180;
+                    //objectInHand.transform.rotation = rot;
+
+                    //rot = snapPoint.transform.rotation;
+                    //rot.x -= 180;
+                    //rot.y -= 180;
+                    //rot.z -= 180;
+                    //objectInHand.transform.rotation = snapPoint.transform.rotation;
+                }
+
+
                 objectInHand.transform.position -= (snapPoint.transform.position - controllerSnapPoint.transform.position);
 
                 snapPoint.transform.position = controllerSnapPoint.transform.position;

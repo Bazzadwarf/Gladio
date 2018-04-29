@@ -30,11 +30,24 @@ public class EnemyController : MonoBehaviour {
     int moveBackTime;
     int moveBackCount = 0;
 
+    public AudioClip death1;
+    public AudioClip death2;
+    public AudioClip death3;
+    public AudioClip death4;
+    public AudioClip death5;
+    public AudioClip death6;
+    public AudioClip death7;
+    public AudioClip death8;
+    public AudioClip death9;
+
+    AudioClip[] death;
+
     Vector3 lastLocation;
     Quaternion lastRotaction;
     // Use this for initialization
     void Start()
-    { 
+    {
+        death = new AudioClip[9] { death1, death2, death3, death4, death5, death6, death7, death8, death9 };
         lastLocation = thisGameObject.transform.position;
         lastRotaction = thisGameObject.transform.rotation;
         setAttackDistance = attackDistance;
@@ -128,6 +141,8 @@ public class EnemyController : MonoBehaviour {
             if (health <= 0)
             {
                 playerInfo.GetComponent<PlayerInfo>().killCounter+= 1;
+                int intSound = Random.Range(0, 9);
+                AudioSource.PlayClipAtPoint(death[intSound], transform.position);
                 Destroy(thisGameObject);
                 
             }

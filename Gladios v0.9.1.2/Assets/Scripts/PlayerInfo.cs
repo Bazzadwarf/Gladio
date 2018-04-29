@@ -36,8 +36,11 @@ public class PlayerInfo : MonoBehaviour {
         currHealth = maxHealth;
         RefreshHealthBar();
         RefreshKillCounter();
-        Instantiate(Data.Weapon);
-        Instantiate(Data.Shield);
+        Vector3 location1 = new Vector3((float)-0.5, (float)0.5, (float)0.5);
+        Vector3 location2 = new Vector3((float)0.5, (float)0.5, (float)0.5);
+        Quaternion rot = new Quaternion(0, 0, 0, 0);
+        Instantiate(Data.Weapon1,location1,rot);
+        Instantiate(Data.Weapon2,location2,rot);
 
     }
 

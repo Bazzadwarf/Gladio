@@ -7,8 +7,8 @@ public class SceneLoader : MonoBehaviour
     
 	public void Loader(string s)
     {
-        Data.Weapon = null;
-        Data.Shield = null;
+        Data.Weapon1 = null;
+        Data.Weapon2 = null;
         SceneManager.LoadScene(s);
     }
 }
